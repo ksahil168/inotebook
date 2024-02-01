@@ -10,17 +10,17 @@ import NoteState from "./context/notes/NoteState";
 function App() {
   return (
     <>
-    <NoteState>
-      <Router>
-        <Navbar />
-        <Routes>
-          {" "}
-          {/* Updated to use Routes instead of Switch */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Router>
-    </NoteState>
+      <NoteState>
+        <Router>
+          <Navbar />
+          <Routes>
+            {" "}
+            {/* Updated to use Routes instead of Switch */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </Router>
+      </NoteState>
     </>
   );
 }
