@@ -13,12 +13,14 @@ function App() {
       <NoteState>
         <Router>
           <Navbar />
-          <Routes>
-            {" "}
-            {/* Updated to use Routes instead of Switch */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+          <div className="container">
+            <Routes>
+              {" "}
+              {/* Updated to use Routes instead of Switch */}
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </div>
         </Router>
       </NoteState>
     </>
