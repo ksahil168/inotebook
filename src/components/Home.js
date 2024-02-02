@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import noteContext from "../context/notes/noteContext";
 /* import {
     BrowserRouter as Router,
     Switch,
@@ -7,6 +8,9 @@ import React from "react";
   } from "react-router-dom"; */
 
 export const Home = () => {
+  const context = useContext(noteContext);
+  const { notes, setNotes } = context;
+
   return (
     <div>
       <div className="container my-3">
@@ -51,6 +55,10 @@ export const Home = () => {
 
         <div className="conatiner my-3">
           <h2>Your Notes</h2>
+
+          {notes.map((note) => {
+            return note.title;
+          })}
         </div>
       </div>
     </div>
