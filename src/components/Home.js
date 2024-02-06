@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import noteContext from "../context/notes/noteContext";
+import Notes from "./Notes";
+
 /* import {
     BrowserRouter as Router,
     Switch,
@@ -8,9 +8,6 @@ import noteContext from "../context/notes/noteContext";
   } from "react-router-dom"; */
 
 export const Home = () => {
-  const context = useContext(noteContext);
-  const { notes, setNotes } = context;
-
   return (
     <div>
       <div className="container my-3">
@@ -52,13 +49,9 @@ export const Home = () => {
             Submit
           </button>
         </form>
-
-        <div className="conatiner my-3">
+        <div className="my-3">
           <h2>Your Notes</h2>
-
-          {notes.map((note) => {
-            return note.title;
-          })}
+          <Notes />
         </div>
       </div>
     </div>
