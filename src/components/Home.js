@@ -13,7 +13,7 @@ export const Home = () => {
       <div className="container my-3">
        
         <div className="my-3">
-          <h2>Your Notes</h2>
+        
           <Notes />
         </div>
       </div>
