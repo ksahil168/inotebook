@@ -39,7 +39,7 @@ const NoteState = (props) => {
 
     console.log("Adding a new note");
     const note = {
-      _id: "65b8911abadc4ca1d296bdec",
+      _id: "65c3439d7cd39b325d2ba8ad",
       user: "65b75668975c035417d008db",
       title: title,
       description: description,
@@ -52,7 +52,8 @@ const NoteState = (props) => {
 
   // Delete a Note
   const deleteNote = async (id) => {
-    // TODO: API Call
+    // API Call
+    // eslint-disable-next-line
     const response = await fetch(`${host}/api/notes/deletenode/${id}`, {
       method: "DELETE",
       headers: {
@@ -61,7 +62,6 @@ const NoteState = (props) => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjViNzU2Njg5NzVjMDM1NDE3ZDAwOGRiIn0sImlhdCI6MTcwNjU4Nzk0NX0.P5rn7wVeifC5YnqA0mhIcqOgGgJh4Ru2Hh15BR8Bhmg",
       },
     });
-    // eslint-disable-next-line
     const json = response.json();
     console.log(json);
 
@@ -71,6 +71,7 @@ const NoteState = (props) => {
     });
     setNotes(newNotes);
   };
+
   // Edit a Note
   const editNote = async (id, title, description, tag) => {
     // API Call
@@ -83,7 +84,6 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    // eslint-disable-next-line
     const json = response.json();
 
     // Logic to edit in client
