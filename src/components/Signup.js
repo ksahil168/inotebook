@@ -1,17 +1,26 @@
+// Importing React and useState hook from react
 import React, { useState } from "react";
+// Importing useNavigate hook from react-router-dom for navigation
 import { useNavigate } from "react-router-dom";
 
+// Defining a functional component Signup
 const Signup = () => {
+  // Using useState hook to manage form data
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
     password: "",
     cpassword: "",
   });
+  // Using useNavigate hook for navigation
   const navigate = useNavigate();
+  // Defining an async function to handle form submission
   const handleSubmit = async (e) => {
+    // Preventing default form submission
     e.preventDefault();
+    // Destructuring name, email, password from credentials
     const { name, email, password } = credentials;
+    // Making a POST request to the server to create a new user
     const response = await fetch("http://localhost:5000/api/auth/createuser", {
       method: "POST",
       headers: {
@@ -23,18 +32,23 @@ const Signup = () => {
         password,
       }),
     });
+    // Parsing the response to JSON
     const json = await response.json();
+    // Logging the response to the console
     console.log(json);
 
-    // Save the auth token and redirect
+    // Saving the auth token to local storage and redirecting to home page
     localStorage.setItem("token", json.authtoken);
     navigate("/");
   };
 
+  // Defining a function to handle form input changes
   const onChange = (e) => {
+    // Updating the credentials state with the new input value
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+  // Returning the JSX for the Signup form
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
@@ -101,4 +115,5 @@ const Signup = () => {
   );
 };
 
+// Exporting the Signup component as default
 export default Signup;

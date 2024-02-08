@@ -1,3 +1,4 @@
+// This code snippet is a React component that renders a form for adding a note. It uses the useContext and useState hooks to manage the state of the note. When the form is submitted, it calls the addNote function from the noteContext and resets the
 import React, {useContext, useState} from 'react'
 import noteContext from "../context/notes/noteContext"
 

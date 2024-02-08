@@ -1,3 +1,5 @@
+// The code snippet is a React component for a login form. It handles form submission, sends a POST request to a server endpoint, and saves the authentication token in local storage if the login is successful.
+// This code snippet is a Node.js Express server that handles user authentication. It includes routes for creating a user, logging in a user, and getting the details of a logged-in user. It uses express-validator for input validation, bcryptjs for password hashing
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
