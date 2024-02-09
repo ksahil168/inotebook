@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Defining a functional component Signup
-const Signup = () => {
+const Signup = (props) => {
   // Using useState hook to manage form data
   const [credentials, setCredentials] = useState({
     name: "",
@@ -36,10 +36,15 @@ const Signup = () => {
     const json = await response.json();
     // Logging the response to the console
     console.log(json);
-
+    if(json.success){
     // Saving the auth token to local storage and redirecting to home page
     localStorage.setItem("token", json.authtoken);
     navigate("/");
+    props.showAlert("Account created successfuly", "success")
+    }
+    else{
+      props.showAlert("Invalid credentials", "danger")
+    }
   };
 
   // Defining a function to handle form input changes
